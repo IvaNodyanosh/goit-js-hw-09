@@ -52,7 +52,7 @@ const options = {
         startBtn.disabled = false;
 
     } else {
-        alert("Please choose a date in the future");
+        flatpickr.warning("Please choose a date in the future");
 
         startBtn.disabled = true;
     }
@@ -80,12 +80,13 @@ const startTimer = function () {
   
         if (time > 0) {
     
-
+            startBtn.disabled = true;
             datDays.textContent = addLeadingZero(convertTime.days);
             datHours.textContent = addLeadingZero(convertTime.hours);
             datMinutes.textContent = addLeadingZero(convertTime.minutes);
             datSeconds.textContent = addLeadingZero(convertTime.seconds);
         } else {
+            startBtn.disabled = false;
             clearInterval(dataId);
             alert("job done time is up")
         }
