@@ -65,7 +65,9 @@ const input = document.querySelector('#datetime-picker');
 
 flatpickr(input, options);
 
-
+const addLeadingZero = function(value){
+    return value.toString().padStart(2, '0')
+}
 
 const startTimer = function () {
     const dataId = setInterval(() => {
@@ -79,10 +81,10 @@ const startTimer = function () {
         if (time > 0) {
     
 
-            datDays.textContent = convertTime.days.toString().padStart(2, '0');
-            datHours.textContent = convertTime.hours.toString().padStart(2, '0');
-            datMinutes.textContent = convertTime.minutes.toString().padStart(2, '0');
-            datSeconds.textContent = convertTime.seconds.toString().padStart(2, '0');
+            datDays.textContent = addLeadingZero(convertTime.days);
+            datHours.textContent = addLeadingZero(convertTime.hours);
+            datMinutes.textContent = addLeadingZero(convertTime.minutes);
+            datSeconds.textContent = addLeadingZero(convertTime.seconds);
         } else {
             clearInterval(dataId);
             alert("job done time is up")
